@@ -1,2 +1,5 @@
-Hallo!
+Hallo, welkom bij de enige echte Saltstack van Universiteit Deventer!
+
+Voor het maken van een commit: sudo git commit -m "bericht"
+Voor het pushen van de commit: sudo git push origin master
 
