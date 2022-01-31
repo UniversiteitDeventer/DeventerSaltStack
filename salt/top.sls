@@ -1,69 +1,61 @@
 #Let op: er kan verschil zitten in Ubuntu en CentOS
 #Let op: geen ntp check op de NTP server doen
 base:
-  'g07-ntp':
+  'LNX-NTP':
+    - update_system_ubuntu
     - check_clamav_ubuntu
     - check_filebeat_ubuntu
     - check_auditbeat_ubuntu
-  'g07-saltmaster':
+  'LNX-saltmaster':
+    - update_system_ubuntu
     - check_ntp_ubuntu
     - check_clamav_ubuntu
     - check_filebeat_ubuntu
     - check_auditbeat_ubuntu
-  'mail.local':
-    - check_ntp_ubuntu
-    - check_iRedMail_server
-    - check_filebeat_ubuntu
-    - check_clamav_ubuntu
-    - check_auditbeat_ubuntu
-  'aaa.local':
+  'LNX-DB':
+    - update_system_ubuntu
     - check_ntp_ubuntu
     - check_clamav_ubuntu
     - check_filebeat_ubuntu
     - check_auditbeat_ubuntu
-  'g07-db':
-    - check_ntp_ubuntu
-    - check_clamav_ubuntu
-    - check_filebeat_ubuntu
-    - check_auditbeat_ubuntu
-  'g07-dhcp':
+  'LNX-DHCP':
+    - update_system_ubuntu
     - check_ntp_ubuntu
     - check_dhcp_server
     - check_clamav_ubuntu
     - check_filebeat_ubuntu
     - check_auditbeat_ubuntu
-  'g07-dnsbackup':
+  'LNX-ELK':
+    - update_system_ubuntu
+    - check_ntp_ubuntu
+    - check_clamav_ubuntu
+  'LNX-ELO':
+    - update_system_ubuntu
     - check_ntp_ubuntu
     - check_clamav_ubuntu
     - check_filebeat_ubuntu
     - check_auditbeat_ubuntu
-  'g07-elk':
-    - check_ntp_ubuntu
-    - check_clamav_ubuntu
-  'g07-elo':
-    - check_ntp_ubuntu
-    - check_clamav_ubuntu
-    - check_filebeat_ubuntu
-    - check_auditbeat_ubuntu
-  'g07-fileshare':
+  'LNX-PROXY':
+    - update_system_ubuntu
     - check_ntp_ubuntu
     - check_clamav_ubuntu
     - check_filebeat_ubuntu
     - check_auditbeat_ubuntu
-  'g07-proxy':
-    - check_ntp_ubuntu
-    - check_clamav_ubuntu
-    - check_filebeat_ubuntu
-    - check_auditbeat_ubuntu
-  'g07-tftp':
+  'LNX-TFTP':
+    - update_system_ubuntu
     - check_ntp_ubuntu
     - check_tftp_hpa_server
     - check_clamav_ubuntu
     - check_filebeat_ubuntu
     - check_auditbeat_ubuntu
-  'g07-ws*':
+  'LNX-ws*':
     - setup_workstation_centos
     - check_ntp_centos
     - check_ca_ubuntu
-    - check_fileshare_centos
-    - check_ldap_client
+#    - check_fileshare_centos
+#    - check_ldap_client
+  'LNX-Beheer':
+    - setup_workstation_centos
+    - check_ntp_centos
+    - check_ca_ubuntu
+#    - check_fileshare_centos
